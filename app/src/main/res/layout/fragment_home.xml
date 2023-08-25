@@ -1,22 +1,411 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    style="@style/SCREEN"
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/text_home"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        tools:context=".ui.home.HomeFragment">
+
+        <ProgressBar
+            android:id="@+id/loadingSetLocation"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:theme="@style/CARD"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textViewPayment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            app:contentPadding="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/locationTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="@string/location"
+                    android:theme="@style/TEXT2"
+                    android:textSize="18dp" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/location_pin" />
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/no_location"
+                    android:textAlignment="center"
+                    android:textSize="12dp"
+                    android:theme="@style/TEXT" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRefreshLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="100dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/refresh"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:theme="@style/BUTTON2"
+                    app:cornerRadius="10dp" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/SearchLocalityTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/search_locality_title"
+            android:textSize="18dp"
+            android:theme="@style/TEXT2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card" />
+
+        <HorizontalScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/SearchLocalityTitle"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:orientation="horizontal" >
+
+                <!-- General Restaurant Option -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnRestaurant"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:theme="@style/BUTTON"
+                        app:cornerRadius="10dp"
+                        app:icon="@drawable/baseline_restaurant_24"
+                        app:iconGravity="textStart" />
+
+                    <TextView
+                        android:id="@+id/restaurantTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="@string/restaurant"
+                        android:textSize="10dp"
+                        android:theme="@style/TEXT" />
+
+                </LinearLayout>
+
+                <!-- Hotel Option -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginStart="25dp"
+                    android:orientation="vertical" >
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnHotel"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:theme="@style/BUTTON"
+                        app:cornerRadius="10dp"
+                        app:icon="@drawable/baseline_hotel_24"
+                        app:iconGravity="textStart" />
+
+                    <TextView
+                        android:id="@+id/hotelTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="@string/hotel"
+                        android:textSize="10dp"
+                        android:theme="@style/TEXT" />
+
+                </LinearLayout>
+
+                <!-- Shopping Mall Option -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginStart="25dp"
+                    android:orientation="vertical" >
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnMall"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:theme="@style/BUTTON"
+                        app:cornerRadius="10dp"
+                        app:icon="@drawable/baseline_shopping_24"
+                        app:iconGravity="textStart" />
+
+                    <TextView
+                        android:id="@+id/mallTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="@string/mall"
+                        android:textSize="10dp"
+                        android:theme="@style/TEXT" />
+
+                </LinearLayout>
+
+                <!-- bank Option -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginStart="25dp"
+                    android:orientation="vertical" >
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnBank"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:theme="@style/BUTTON"
+                        app:cornerRadius="10dp"
+                        app:icon="@drawable/baseline_local_atm_24"
+                        app:iconGravity="textStart" />
+
+                    <TextView
+                        android:id="@+id/bankTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="@string/bank"
+                        android:textSize="10dp"
+                        android:theme="@style/TEXT" />
+
+                </LinearLayout>
+
+                <!-- Sport Option -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginStart="25dp"
+                    android:orientation="vertical" >
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSport"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:theme="@style/BUTTON"
+                        app:cornerRadius="10dp"
+                        app:icon="@drawable/baseline_sports_basketball_24"
+                        app:iconGravity="textStart" />
+
+                    <TextView
+                        android:id="@+id/sportTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="@string/sport"
+                        android:textSize="10dp"
+                        android:theme="@style/TEXT" />
+
+                </LinearLayout>
+
+                <!-- Hospital Option -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginStart="25dp"
+                    android:orientation="vertical" >
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnHospital"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:theme="@style/BUTTON"
+                        app:cornerRadius="10dp"
+                        app:icon="@drawable/baseline_local_hospital_24"
+                        app:iconGravity="textStart" />
+
+                    <TextView
+                        android:id="@+id/hospitalTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="@string/hospital"
+                        android:textSize="10dp"
+                        android:theme="@style/TEXT" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+
+        <TextView
+            android:id="@+id/NewsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/title_trending_news"
+            android:textSize="18dp"
+            android:theme="@style/TEXT2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scroll" />
+
+
+        <TextView
+            android:id="@+id/btnSeeAllNews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/see_all_new"
+            android:textColor="@color/light_grey"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@+id/NewsTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/NewsTitle" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHomeNews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/NewsTitle" />
+
+        <TextView
+            android:id="@+id/ArticleTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/title_local_shout"
+            android:textSize="18dp"
+            android:theme="@style/TEXT2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvHomeNews" />
+
+        <TextView
+            android:id="@+id/btnSeeAllArticle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/see_all_new"
+            android:textColor="@color/light_grey"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ArticleTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ArticleTitle" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHomeArticle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ArticleTitle" />
+
+        <Space
+            android:id="@+id/space"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvHomeArticle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

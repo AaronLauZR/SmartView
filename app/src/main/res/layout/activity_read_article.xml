@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.article.ReadArticleActivity">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/read_articleimage"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
+            android:background="@color/white_alpha_70"
+            android:padding="3dp"
+            android:src="@drawable/add_article"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/read_articletime"
+            app:shapeAppearanceOverlay="@style/RoundedSquare"
+            app:strokeColor="@color/dark_grey2"
+            app:strokeWidth="3dp"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/read_articlearea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="TextView"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/read_articletime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/read_articletitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="TextView"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:theme="@style/TEXT2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/read_articleimage" />
+
+        <TextView
+            android:id="@+id/read_articlename"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            android:text="TextView"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:theme="@style/TEXT3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/read_articletitle" />
+
+        <TextView
+            android:id="@+id/read_articledescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:text="TextView"
+            android:textSize="14sp"
+            android:theme="@style/TEXT2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/read_articlename" />
+
+        <CheckBox
+            android:id="@+id/cbHeart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:button="@drawable/selector_wishlist_item"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/read_articledescription"
+            app:useMaterialThemeColors="false" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

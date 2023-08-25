@@ -2,7 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
+        android:name=".ui.SmartViewApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -10,12 +17,44 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FYPSmartView"
+        android:theme="@style/Theme.SmartView"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.article.ArticleEditActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.article.ReadArticleActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.locality.ReadLocalityActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.authentication.signup.PersonalDetailActivity"
             android:exported="true"
-            android:label="@string/app_name">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SmartView.NoActionBar" />
+        <activity
+            android:name=".ui.authentication.signup.SignUpActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SmartView.NoActionBar" />
+        <activity
+            android:name=".ui.authentication.login.LoginActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SmartView.NoActionBar" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.splash_screen.SplashScreenActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SmartView.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

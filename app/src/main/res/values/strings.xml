@@ -1,8 +1,105 @@
 <resources>
-    <string name="app_name">FYP SmartView</string>
+    <string name="app_name">SmartView</string>
+
+    <!--- Menu -->
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_news">News</string>
+    <string name="title_trending_news">Trending News</string>
+    <string name="title_local_shout">Local Shout</string>
+    <string name="title_post_local_shout">Post Shout</string>
+    <string name="title_profile">Profile</string>
+
+    <!-- Strings related to user authentication -->
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirmPassword">Confirm Password</string>
+
+    <string name="login">Login</string>
+    <string name="title_login">Welcome Back</string>
+    <string name="nav_login">Have an existing account? Click here</string>
+    <string name="login_desc">Please fill your detail to access your account.</string>
+
+    <string name="signUp">Sign Up</string>
+    <string name="title_signUp">Create an Account</string>
+    <string name="nav_signUp">Dont have an account? Click here</string>
+    <string name="signUp_desc">Please fill your detail to create your new account.</string>
+
+    <string name="personalDetail">Personal Detail</string>
+    <string name="personalDetail_desc">Please fill your personal detail to proceed.</string>
+    <string name="required">Required</string>
+    <string name="title_register">Register as</string>
+    <string name="continues">Continue</string>
+    <string name="dob">Date of Birth</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="gender">Gender</string>
+    <string name="location">Area/Location</string>
+    <string name="confirm">Confirm</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="reset">Reset</string>
+    <string name="title_edit_profile">Edit Profile</string>
+    <string name="upload_error">Upload Failed</string>
+    <string name="upload_photo">Upload Photo</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="change_password">Change Password</string>
+    <string name="logout">Logout</string>
+    <string name="profile">Profile</string>
+    <string name="bookmark_article">Bookmark</string>
+    <string name="settings">Settings</string>
+    <string name="my_article">My Local Shout</string>
+    <string name="profile_photo">Profile photo</string>
+    <string name="submit">Submit</string>
+    <string name="name">Name</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="save">Save</string>
+    <string name="loginGoogle">Login with Google</string>
+    <string name="listen">listen</string>
+
+    <!-- News -->
+    <string name="browse">browse</string>
+    <string name="share">share</string>
+    <string name="news_placeholder">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="internet_warming">Check your Internet Connection and Try Again!</string>
+    <string name="read_news">Read News</string>
+    <string name="no_location">No Location</string>
+    <string name="refresh">Refresh</string>
+    <string name="search_locality_title">Seach Locality</string>
+    <string name="news_title">News</string>
+    <string name="news_desc">All news here are published from local news in Malaysia</string>
+    <string name="article_desc">All articles here are posted from global user, you can view the articles based on different area/location in Malaysia.</string>
+    <string name="restaurant">Restaurant</string>
+    <string name="hotel">Hotel</string>
+    <string name="mall">Mall</string>
+    <string name="sport">Sport</string>
+    <string name="bank">Bank</string>
+    <string name="hospital">Hospital</string>
+    <string name="locality">Locality</string>
+    <string name="rating">Rating</string>
+    <string name="restaurant_name">Restaurant</string>
+    <string name="price">Price per pax</string>
+    <string name="restaurant_category">Category</string>
+    <string name="restaurant_address">Address</string>
+    <string name="operating_hour">Operating Hour</string>
+    <string name="route">Route</string>
+    <string name="contact">Contact</string>
+    <string name="website">Website</string>
+    <string name="locality_news">Locality News</string>
+    <string name="locality_nearby_title">Locality Nearby</string>
+    <string name="location_permission">Location Permission</string>
+    <string name="see_all_new">See All ></string>
+    <string name="title_my_local_shout">My Local Shout</string>
+    <string name="bookmark_local_shout">Bookmark</string>
+
+    <!--<string-array name="category_list">
+        <item>Select Post Category</item>
+        <item>Event</item>
+        <item>Foodstuff</item>
+        <item>Sport</item>
+        <item>Tourism</item>
+        <item>Technology</item>
+    </string-array>-->
+
 </resources>

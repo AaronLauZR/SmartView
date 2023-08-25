@@ -7,19 +7,157 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.fypsmartview.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:name="my.edu.tarc.smartview.ui.home.HomeFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_news"
+            app:destination="@id/navigation_news"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_locality_news"
+            app:destination="@id/navigation_locality_news"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_article"
+            app:destination="@id/navigation_article"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_locality"
+            app:destination="@id/navigation_locality_eateries"
+            app:popUpTo="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_read_news"
+            app:destination="@id/navigation_read_news"
+            app:popUpTo="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="my.edu.tarc.smartview.ui.authentication.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_settings"
+            app:destination="@id/navigation_settings"
+            app:popUpTo="@id/navigation_profile"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_edit_profile"
+            app:destination="@id/navigation_edit_profile"
+            app:popUpTo="@id/navigation_profile"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_my_article"
+            app:destination="@id/navigation_my_article"
+            app:popUpTo="@id/navigation_profile"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_bookmark_article"
+            app:destination="@id/navigation_bookmark_article"
+            app:popUpTo="@id/navigation_profile"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.fypsmartview.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_settings"
+        android:name="my.edu.tarc.smartview.ui.settings.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.fypsmartview.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_edit_profile"
+        android:name="my.edu.tarc.smartview.ui.authentication.profile.EditProfileFragment"
+        android:label="@string/edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+
+    <fragment
+        android:id="@+id/navigation_news"
+        android:name="my.edu.tarc.smartview.ui.news.NewsFragment"
+        android:label="@string/title_news"
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_navigation_news_to_navigation_read_news"
+            app:destination="@id/navigation_read_news"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_navigation_news_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_read_news"
+        android:name="my.edu.tarc.smartview.ui.news.ReadNewsFragment"
+        android:label="@string/read_news"
+        tools:layout="@layout/fragment_read_news" >
+        <argument
+            android:name="article"
+            app:argType="my.edu.tarc.smartview.ui.news.models.Article" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_post_article"
+        android:name="my.edu.tarc.smartview.ui.article.ArticleAddFragment"
+        android:label="@string/title_post_local_shout"
+        tools:layout="@layout/fragment_article_add" >
+        <action
+            android:id="@+id/action_navigation_post_article_to_navigation_article"
+            app:destination="@id/navigation_article"
+            app:popUpTo="@id/navigation_post_article"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_bookmark_article"
+        android:name="my.edu.tarc.smartview.ui.article.ArticleBookmarkFragment"
+        android:label="@string/bookmark_local_shout"
+        tools:layout="@layout/fragment_article_bookmark" />
+    <fragment
+        android:id="@+id/navigation_article"
+        android:name="my.edu.tarc.smartview.ui.article.ArticleFragment"
+        android:label="@string/title_local_shout"
+        tools:layout="@layout/fragment_article" />
+    <fragment
+        android:id="@+id/navigation_locality_eateries"
+        android:name="my.edu.tarc.smartview.ui.locality.LocalityFragment"
+        android:label="@string/locality"
+        tools:layout="@layout/fragment_locality" />
+    <fragment
+        android:id="@+id/navigation_locality_news"
+        android:name="my.edu.tarc.smartview.ui.news.NewsFragment"
+        android:label="@string/locality_news"
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_navigation_locality_news_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_locality_news_to_navigation_read_news"
+            app:destination="@id/navigation_read_news"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_my_article"
+        android:name="my.edu.tarc.smartview.ui.article.MyArticleFragment"
+        android:label="@string/title_my_local_shout"
+        tools:layout="@layout/fragment_my_article" />
+
+
 </navigation>

@@ -1,0 +1,30 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Other style attributes -->
+        <item name="android:background">@color/blue</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="android:windowBackground">@color/blue</item>
+    </style>
+
+    <style name="AppTheme.Fullscreen" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="SearchView" parent="">
+        <item name="android:editTextColor">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="android:textSize">13dp</item>
+        <item name="android:fontFamily">montserrat</item>
+    </style>
+
+    <style name="circular">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="RoundedSquare">
+        <item name="cornerSize">5%</item>
+    </style>
+</resources>

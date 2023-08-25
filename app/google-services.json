@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "357005688035",
+    "firebase_url": "https://smartview-caac9-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "smartview-caac9",
+    "storage_bucket": "smartview-caac9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357005688035:android:a54780bc0ce89cae0299d6",
+        "android_client_info": {
+          "package_name": "my.edu.tarc.smartview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357005688035-km7utmiuia5skbg7nc9h4bm1a2br2h9b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5Xeu8HCHeG05YN8qLvaPGn0M8Q8f99m8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357005688035-km7utmiuia5skbg7nc9h4bm1a2br2h9b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

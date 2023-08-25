@@ -1,20 +1,25 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
+    id 'kotlin-android'
+    id 'dagger.hilt.android.plugin'
+    id "androidx.navigation.safeargs.kotlin"
 }
 
 android {
-    namespace 'com.example.fypsmartview'
+    namespace 'my.edu.tarc.smartview'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.fypsmartview"
-        minSdk 24
+        applicationId "my.edu.tarc.smartview"
+        minSdk 26
         targetSdk 33
         versionCode 1
-        versionName "1.0"
+        versionName "1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //buildConfigField("String", "API_KEY", "\"62859e01c89a4c8da0fe53686ede65e5\"")
     }
 
     buildTypes {
@@ -24,29 +29,115 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
     buildFeatures {
         viewBinding true
     }
 }
 
+kapt {
+    correctErrorTypes true
+}
+
 dependencies {
 
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
     testImplementation 'junit:junit:4.13.2'
+    implementation 'com.github.dhaval2404:imagepicker:2.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    //Theme
+    implementation 'com.google.android.material:material:1.7.0'
+
+    //Firebase
+    implementation 'com.google.firebase:firebase-database:20.1.0'
+    implementation 'com.google.firebase:firebase-database-ktx:20.2.2'
+    implementation 'com.google.firebase:firebase-auth:21.1.0'
+    implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.2.0'
+
+    //Google Sign In
+    implementation 'com.google.android.gms:play-services-auth:20.2.0'
+
+    //Google Map
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+
+    //Card View
+    implementation "androidx.cardview:cardview:1.0.0"
+
+    //View image url
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    kapt 'com.github.bumptech.glide:compiler:4.12.0'
+    apply plugin: 'kotlin-kapt'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+
+    //News
+
+
+    //retrofit and moshi converter
+    def retrofit = "2.9.0"
+    def moshi = '1.13.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit"
+    implementation "com.squareup.moshi:moshi:$moshi"
+
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+    implementation "com.squareup.retrofit2:retrofit:2.7.1"
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+
+    // coroutine
+    def coroutine = "1.5.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine"
+    kapt "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine"
+
+    // Room components
+    def room = "2.5.2"
+    implementation "androidx.room:room-ktx:$room"
+    kapt "androidx.room:room-compiler:$room"
+    androidTestImplementation "androidx.room:room-testing:$room"
+
+    // Logging
+    implementation "com.squareup.okhttp3:logging-interceptor:4.5.0"
+
+    //hilt
+    def hilt = '2.46.1'
+    implementation "com.google.dagger:hilt-android:$hilt"
+    kapt "com.google.dagger:hilt-compiler:$hilt"
+
+    //glide
+    def glide = "4.12.0"
+    implementation "com.github.bumptech.glide:glide:$glide"
+    kapt "com.github.bumptech.glide:compiler:$glide"
+
+    //datastore
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+
+    //integration testing
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    //implementation 'com.amitshekhar.android:android-networking:1.0.2'
+    //implementation 'com.mikhaellopez:circularimageview:4.2.0'
+    //implementation 'xyz.sahildave:arclayout:1.0.0'
+    implementation 'com.android.volley:volley:1.2.0'
 
 }

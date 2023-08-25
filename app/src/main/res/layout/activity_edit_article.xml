@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.article.ArticleEditActivity">
+
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:id="@+id/article_editarticle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Edit Local Shout"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_conversion_absoluteHeight="27dp"
+            tools:layout_conversion_absoluteWidth="107dp" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/article_editimage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/add_article"
+            android:background="@color/white_alpha_85"
+            app:shapeAppearanceOverlay="@style/circular"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/dark_grey2"
+            android:padding="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/article_editarticle" />
+
+        <Button
+            android:id="@+id/article_editimagebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="UPLOAD"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:theme="@style/BUTTON2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/article_editimage"
+            tools:layout_conversion_absoluteHeight="48dp"
+            tools:layout_conversion_absoluteWidth="93dp" />
+
+        <Spinner
+            android:id="@+id/article_editcategory"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="80dp"
+            android:animationCache="false"
+            android:entries="@array/category_group"
+            android:background="@drawable/spinner_style"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/article_editimagebtn" />
+
+        <TextView
+            android:id="@+id/article_editarticletitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="Title"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/article_editcategory"
+            tools:layout_conversion_absoluteHeight="216dp"
+            tools:layout_conversion_absoluteWidth="0dp" />
+
+        <EditText
+            android:id="@+id/article_edittitletxt"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:ems="10"
+            android:hint="Edit your title here..."
+            android:inputType="text"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/article_editarticletitle"
+            tools:layout_conversion_absoluteHeight="37dp"
+            tools:layout_conversion_absoluteWidth="0dp" />
+
+        <TextView
+            android:id="@+id/article_editdescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:text="Description"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/article_edittitletxt"
+            tools:layout_conversion_absoluteHeight="183dp"
+            tools:layout_conversion_absoluteWidth="0dp" />
+
+        <EditText
+            android:id="@+id/article_editdescriptiontxt"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:ems="10"
+            android:hint="Edit your content here..."
+            android:inputType="text"
+            android:textAlignment="textStart"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/article_editdescription"
+            tools:layout_conversion_absoluteHeight="37dp"
+            tools:layout_conversion_absoluteWidth="0dp" />
+
+        <Button
+            android:id="@+id/article_savearticle"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="Save"
+            android:textColor="@color/white"
+            android:theme="@style/BUTTON2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/article_deletearticle"
+            app:layout_constraintTop_toBottomOf="@+id/article_editdescriptiontxt" />
+
+        <Button
+            android:id="@+id/article_deletearticle"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:text="Delete"
+            android:textColor="@color/dark_grey3"
+            android:theme="@style/BUTTON3"
+            app:layout_constraintEnd_toStartOf="@+id/article_savearticle"
+            app:layout_constraintHorizontal_bias="0.542"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/article_editdescriptiontxt" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

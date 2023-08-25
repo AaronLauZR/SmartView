@@ -3,17 +3,34 @@
 
     <item
         android:id="@+id/navigation_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_home" />
+    <item
+        android:id="@+id/navigation_news"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/baseline_menu_news_24"
+        android:title="@string/title_news" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
-
+        android:id="@+id/navigation_article"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/baseline_menu_article_24"
+        android:title="@string/title_local_shout" />
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
+        android:id="@+id/navigation_post_article"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/baseline_menu_post_add_24"
+        android:title="@string/title_post_local_shout" />
+    <item
+        android:id="@+id/navigation_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/baseline_menu_account_circle_24"
+        android:title="@string/title_profile" />
 
 </menu>

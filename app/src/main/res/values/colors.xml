@@ -7,4 +7,34 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="blue">#5429FF</color>
+    <color name="blue2">#0099ff</color>
+    <color name="light_grey">#616161</color>
+    <color name="light_grey2">#424242</color>
+    <color name="light_grey3">#A9A9A9</color>
+    <color name="light_grey4">#c7c3c3</color>
+
+    <color name="dark_grey">#232323</color>
+    <color name="dark_grey2">#1A1A1A</color>
+    <color name="dark_grey3">#7c7c7c</color>
+
+    <color name="navy_blue">#0F4C75</color>
+    <color name="dark_navy_blue">#1B262C</color>
+    <color name="royal_blue">#002549</color>
+    <color name="deep_sky_blue">#1E90FF</color>
+    <color name="grey_white">#cccccc</color>
+    <color name="grey_black">#2c2c2c</color>
+    <color name="black_for_bg">#171717</color>
+    <color name="shimmer_bg_color">#dddddd</color>
+
+    <color name="off_white">#FAF9F6</color>
+    <color name="button_disabled">#efefef</color>
+    <color name="black_bg">#121212</color>
+    <color name="black_light">#232323</color>
+    <color name="black_alpha_70">#66000000</color>
+    <color name="white_alpha_85">#DAFFFFFF</color>
+    <color name="white_alpha_70">#B3FFFFFF</color>
+    <color name="white_alpha_50">#80FFFFFF</color>
+    <color name="white_alpha_60">#99FFFFFF</color>
+
 </resources>
