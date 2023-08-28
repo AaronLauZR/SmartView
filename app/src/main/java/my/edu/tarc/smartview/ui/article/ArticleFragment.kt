@@ -60,8 +60,7 @@ class ArticleFragment : Fragment(), ArticleCategoryAdapter.IArticleCategoryAdapt
         _binding = FragmentArticleBinding.inflate(inflater, container, false)
 
         //SharedPreferences
-        sharedPreferences =
-            requireContext().getSharedPreferences(MY_PREF, AppCompatActivity.MODE_PRIVATE)
+        sharedPreferences = requireContext().getSharedPreferences(MY_PREF, AppCompatActivity.MODE_PRIVATE)
         editor = sharedPreferences.edit()
 
         setUpCategoriesRecyclerView()
@@ -81,8 +80,7 @@ class ArticleFragment : Fragment(), ArticleCategoryAdapter.IArticleCategoryAdapt
         })
 
         articleRecyclerView = binding.articleRecyclerview
-        articleRecyclerView.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        articleRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         articleRecyclerView.setHasFixedSize(true)
 
         articleArrayList = arrayListOf<ArticleDetails>()
@@ -93,13 +91,12 @@ class ArticleFragment : Fragment(), ArticleCategoryAdapter.IArticleCategoryAdapt
     }
 
     private fun getLocalShout() {
-        val state = sharedPreferences.getString("state", "")
         val city = sharedPreferences.getString("city", "")
         database = FirebaseDatabase.getInstance().getReference("Local Shout")
 
         articleArrayList.clear()
 
-        if (state == "" || city == "") {
+        if (city == "") {
             //Alert Dialog
             val builder = AlertDialog.Builder(requireContext())
 
@@ -116,11 +113,9 @@ class ArticleFragment : Fragment(), ArticleCategoryAdapter.IArticleCategoryAdapt
                 articleArrayList.clear()
                 if (snapshot.exists()) {
                     for (articleSnapshot in snapshot.children) {
-                        if (articleSnapshot.child("state").getValue().toString().equals(state)) {
-                            if (articleSnapshot.child("city").getValue().toString().equals(city)) {
-                                val article = articleSnapshot.getValue(ArticleDetails::class.java)
-                                articleArrayList.add(article!!)
-                            }
+                        if (articleSnapshot.child("city").getValue().toString().equals(city)) {
+                            val article = articleSnapshot.getValue(ArticleDetails::class.java)
+                            articleArrayList.add(article!!)
                         }
                     }
 
@@ -152,14 +147,13 @@ class ArticleFragment : Fragment(), ArticleCategoryAdapter.IArticleCategoryAdapt
     }
 
     private fun getCategoryShout() {
-        val state = sharedPreferences.getString("state", "")
         val city = sharedPreferences.getString("city", "")
         val selectedCategory = sharedPreferences.getString("category", "")
         database = FirebaseDatabase.getInstance().getReference("Local Shout")
 
         articleArrayList.clear()
 
-        if (state == "" || city == "") {
+        if (city == "") {
             //Alert Dialog
             val builder = AlertDialog.Builder(requireContext())
 
@@ -176,15 +170,10 @@ class ArticleFragment : Fragment(), ArticleCategoryAdapter.IArticleCategoryAdapt
                 articleArrayList.clear()
                 if (snapshot.exists()) {
                     for (articleSnapshot in snapshot.children) {
-                        if (articleSnapshot.child("state").getValue().toString().equals(state)) {
-                            if (articleSnapshot.child("city").getValue().toString().equals(city)) {
-                                if (articleSnapshot.child("category").getValue().toString()
-                                        .equals(selectedCategory)
-                                ) {
-                                    val article =
-                                        articleSnapshot.getValue(ArticleDetails::class.java)
-                                    articleArrayList.add(article!!)
-                                }
+                        if (articleSnapshot.child("city").getValue().toString().equals(city)) {
+                            if (articleSnapshot.child("category").getValue().toString().equals(selectedCategory)) {
+                                val article = articleSnapshot.getValue(ArticleDetails::class.java)
+                                articleArrayList.add(article!!)
                             }
                         }
                     }
