@@ -284,11 +284,9 @@ class HomeFragment : Fragment(), LocationListener {
                 articleArrayList.clear()
                 if (snapshot.exists()) {
                     for (articleSnapshot in snapshot.children) {
-                        if (articleSnapshot.child("state").getValue().toString().equals(state)) {
-                            if (articleSnapshot.child("city").getValue().toString().equals(city)) {
-                                val article = articleSnapshot.getValue(ArticleDetails::class.java)
-                                articleArrayList.add(article!!)
-                            }
+                        if (articleSnapshot.child("city").getValue().toString().equals(city)) {
+                            val article = articleSnapshot.getValue(ArticleDetails::class.java)
+                            articleArrayList.add(article!!)
                         }
                     }
 
